@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasu Hostel Booking</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">PlasuStay <i class='bx bx-building-house'></i></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+                    <button onclick="openModal('signupModal')" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign Up</button>
+                    <button onclick="openModal('loginModal')" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">Log In</button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-700 focus:outline-none">
+                        <i class='bx bx-menu text-2xl'></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" class="block text-gray-700 hover:text-blue-600 py-2">Home</a>
+                    <a href="#" class="block text-gray-700 hover:text-blue-600 py-2">About</a>
+                    <button onclick="openModal('signupModal')" class="w-full text-left bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign Up</button>
+                    <button onclick="openModal('loginModal')" class="w-full text-left bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 mt-2">Log In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Your Perfect Campus Hostel Awaits!</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Affordable, safe, and close to campus. Book your room today and enjoy the ultimate student living experience!
+            </p>
+            <button onclick="openModal('bookingModal')" class="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100">Book a Room</button>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Available Rooms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Room Card -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/img/plasu4.jpeg" alt="Room" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Single Room</h3>
+                        <p class="text-gray-600 mb-4">Comfortable single room with study desk and Wi-Fi.</p>
+                        <p class="text-lg font-bold text-blue-600">&#8358;50.000/month</p>
+                        <button onclick="openModal('bookingModal')" class="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Pay for room</button>
+                    </div>
+                
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/img/plasu5.jpeg" alt="Room" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Double Room</h3>
+                        <p class="text-gray-600 mb-4">Comfortable single room with study desk and Wi-Fi.</p>
+                        <p class="text-lg font-bold text-blue-600">&#8358;100.000/month</p>
+                        <button onclick="openModal('bookingModal')" class="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Pay for room</button>
+                    </div>
+                
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/img/plasu3.jpeg" alt="Room" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Staff Quaters</h3>
+                        <p class="text-gray-600 mb-4">Comfortable single room with study desk and Wi-Fi.</p>
+                        <p class="text-lg font-bold text-blue-600">&#8358;200.000/month</p>
+                        <button onclick="openModal('bookingModal')" class="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Book Now</button>
+                    </div>
+                
+        </div>
+    </section>
+
+    
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6">Sign Up</h2>
+            <form id="signupForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="signupName">Name</label>
+                    <input type="text" id="signupName" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign Up</button>
+                <button type="button" onclick="closeModal('signupModal')" class="w-full mt-2 text-gray-700">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6">Log In</h2>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Log In</button>
+                <button type="button" onclick="closeModal('loginModal')" class="w-full mt-2 text-gray-700">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6">Book a Room</h2>
+            <form id="bookingForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="roomType">Room Type</label>
+                    <select id="roomType" class="w-full px-4 py-2 border rounded-md" required>
+                        <option value="">Select a room</option>
+                        <option value="single">Single Room</option>
+                        <option value="double">Double Room</option>
+                        <option value="mixed">Mixed Room</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="checkIn">Check-in Date</label>
+                    <input type="date" id="checkIn" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="duration">Duration (Months)</label>
+                    <input type="number" id="duration" class="w-full px-4 py-2 border rounded-md" min="1" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Submit Booking</button>
+                <button type="button" onclick="closeModal('bookingModal')" class="w-full mt-2 text-gray-700">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+  <!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Plasu Hostel</h3>
+                <p class="text-gray-300">
+                    Providing affordable, safe, and comfortable accommodation for students. Book your room today and experience campus life at its best!
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400">About Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400">Rooms</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-gray-300 mb-2"><i class='bx bx-envelope mr-2'></i>Email: info@plasuhostel.com</p>
+                <p class="text-gray-300 mb-2"><i class='bx bx-phone mr-2'></i>Phone: +234 915 937 6459</p>
+                <p class="text-gray-300 mb-4"><i class='bx bx-map mr-2'></i>Address: Plateau state universty Campus, Bokkos Plateau state Nigeria</p>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-blue-400"><i class='bx bxl-facebook text-2xl'></i></a>
+                    <a href="#" class="text-gray-300 hover:text-blue-400"><i class='bx bxl-twitter text-2xl'></i></a>
+                    <a href="#" class="text-gray-300 hover:text-blue-400"><i class='bx bxl-instagram text-2xl'></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+            <p class="text-gray-300">&copy; 2025 Plasu Hostel. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+    <script>
+    
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    });
+
+
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+
+    
+    function saveToLocalStorage(key, data) {
+        let existingData = JSON.parse(localStorage.getItem(key)) || [];
+        if (!Array.isArray(existingData)) {
+            existingData = [];
+        }
+        existingData.push(data);
+        localStorage.setItem(key, JSON.stringify(existingData));
+    }
+
+    
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const signupData = {
+            name: document.getElementById('signupName').value,
+            email: document.getElementById('signupEmail').value,
+            password: document.getElementById('signupPassword').value,
+            timestamp: new Date().toISOString()
+        };
+        saveToLocalStorage('signups', signupData);
+        alert('Sign Up submitted!');
+        closeModal('signupModal');
+        document.getElementById('signupForm').reset(); // Clear form
+    });
+
+  
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const loginData = {
+            email: document.getElementById('loginEmail').value,
+            password: document.getElementById('loginPassword').value,
+            timestamp: new Date().toISOString()
+        };
+        saveToLocalStorage('logins', loginData);
+        alert('Log In submitted!');
+        closeModal('loginModal');
+        document.getElementById('loginForm').reset(); 
+    });
+
+    
+    document.getElementById('bookingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const bookingData = {
+            roomType: document.getElementById('roomType').value,
+            checkIn: document.getElementById('checkIn').value,
+            duration: document.getElementById('duration').value,
+            timestamp: new Date().toISOString()
+        };
+        saveToLocalStorage('bookings', bookingData);
+        alert('Booking submitted and saved to local storage!');
+        closeModal('bookingModal');
+        document.getElementById('bookingForm').reset(); 
+    });
+</script>
+</body>
+</html>
